@@ -6,7 +6,7 @@
   <script type="text/javascript">
   $(document).ready(function(){
     $('#serverStatusId').html('Connecting....');
-    var socket = io.connect('https://chatter-blues.herokuapp.com');
+    var socket = io.connect(window.location.hostname);
 
       socket.on('connect',function(data){
           $('#serverStatusId').html('Hola! Connected');

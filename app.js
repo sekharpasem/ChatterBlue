@@ -71,6 +71,6 @@ var storeMessage=function(name,data){
 	});
 }
 
+var port = process.env.PORT || 5000; // Use the port that Heroku provides or default to 5000  port
 
-
-server.listen(8080);
+server.listen(port);
