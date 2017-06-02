@@ -1,5 +1,5 @@
 {
-  "name": "chat",
+  "name": "ChatterBlue",
   "version": "1",
   "dependencies": {
     "express": "^4.15.3",

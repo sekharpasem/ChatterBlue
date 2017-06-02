@@ -6,7 +6,7 @@
   <script type="text/javascript">
   $(document).ready(function(){
     $('#serverStatusId').html('Connecting....');
-    var socket = io.connect(window.location.hostname);
+    var socket = io.connect("http://localhost:8080");
 
       socket.on('connect',function(data){
           $('#serverStatusId').html('Hola! Connected');

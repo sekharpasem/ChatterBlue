@@ -3,7 +3,7 @@ var app=express();
 var server=require('http').createServer(app);	
 var io=require('socket.io')(server);
 var redis=require('redis');
-var redisClient=redis.createClient("redis://h:p7f3f67abcb473bb75bd0d83c9f1b6e7bbefc46524cc475559236932cdc1ada7a@ec2-34-195-166-91.compute-1.amazonaws.com:14589");
+var redisClient=redis.createClient();
 
 
 io.on('connection',function(client){
@@ -71,6 +71,5 @@ var storeMessage=function(name,data){
 	});
 }
 
-var port = process.env.PORT || 5000; // Use the port that Heroku provides or default to 5000  port
 
-server.listen(port);
+server.listen(8080);

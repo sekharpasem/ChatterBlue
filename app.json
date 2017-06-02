@@ -1,7 +1,7 @@
 {
-	"name":"Chatter",
+	"name":"ChatterBlue",
 	"env":{
-		"REDIS_URL":"redis://h:p7f3f67abcb473bb75bd0d83c9f1b6e7bbefc46524cc475559236932cdc1ada7a@ec2-34-195-166-91.compute-1.amazonaws.com:14589"
+		"REDIS_URL":"REDIS_URL"
 	}
 
 }
