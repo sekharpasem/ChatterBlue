@@ -3,7 +3,7 @@ var app=express();
 var server=require('http').createServer(app);	
 var io=require('socket.io')(server);
 var redis=require('redis');
-var redisClient=redis.createClient(process.env.REDIS_URL);
+var redisClient=redis.createClient("redis://h:p7f3f67abcb473bb75bd0d83c9f1b6e7bbefc46524cc475559236932cdc1ada7a@ec2-34-195-166-91.compute-1.amazonaws.com:14589");
 
 
 io.on('connection',function(client){
