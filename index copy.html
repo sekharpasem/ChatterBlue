@@ -1,0 +1,80 @@
+<html>
+  <head>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('#serverStatusId').html('Connecting....');
+    var socket = io.connect('http://192.168.0.102:8080');
+
+      socket.on('connect',function(data){
+          $('#serverStatusId').html('Hola! Connected');
+          nickname=prompt("What is your name?");
+
+          socket.emit('join',nickname);
+      });
+      socket.on('add chatter',function(name){
+        var chatter=$('<li>'+name+'</li>').data('name',name);
+        $('#membersUlId').append(chatter);
+      });
+
+      socket.on('remove chatter',function(name){
+        $('#membersUlId li[data-name='+name+']').remove(); 
+      });
+
+      socket.on('messages',function(data){
+        console.log("On messages");
+        insertMessageData(data);
+        });
+
+      $('#sendMessageFormId').submit(function(e){
+        console.log("sendMessageFormId fun called")
+        var message=$('#inputMessageId').val();
+        socket.emit('messages',message);
+        $('#inputMessageId').val('');
+        e.preventDefault();
+      });
+
+      function insertMessageData(data){
+      $('#messagesDivId').append(data+"<br>");
+      }
+    });
+  </script>
+  </head>
+
+  <body>
+<h1>Chatter box</h1>
+
+
+<div>
+ <!--server status div-->
+  <div id="serverStatusId">
+    
+  </div>
+  <div>
+  <!--left div-->
+    <div id="membersDivId">
+      <ul id="membersUlId"></ul>
+    </div>
+
+     <!--right div-->
+    <div>
+
+        <div id="messagesDivId">
+          
+        </div>
+       <!--bottom div-->
+     
+        <div>
+          <form id="sendMessageFormId" action="#">
+            <input type="text" name="message" id="inputMessageId">
+            <input type="submit" value="Send" /> 
+          </form>
+        </div>
+    </div>
+  </div>
+
+</div>
+  </body>
+</html>

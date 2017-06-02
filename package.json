@@ -1,0 +1,13 @@
+{
+  "name": "chat",
+  "version": "1",
+  "dependencies": {
+    "express": "^4.15.3",
+    "http": "0.0.0",
+    "redis": "^2.7.1",
+    "socket.io": "^2.0.1"
+  },
+  "engines":{
+  	"node":"6.10.3"
+  }
+}
